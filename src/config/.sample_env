@@ -1,3 +1,4 @@
+USE_SELENIUM=FALSE
 URL_BASE_NAME="<url_to_website_for_scrape>"
 URL_PAGES=1
 USE_LIST=FALSE

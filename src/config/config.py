@@ -8,6 +8,7 @@ class Settings(BaseSettings):
         env_file="config/.env", env_file_encodings="utf-8"
     )
 
+    use_selenium: bool
     url_base_name: str
     url_pages: int
     use_list: bool
