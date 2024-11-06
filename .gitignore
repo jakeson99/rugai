@@ -8,6 +8,17 @@ __pycache__/
 
 # Data
 data/
+predict/
+
+# wandb
+wandb/
+
+# models and check pt
+*.pth
+*.pt
+
+# log files
+*.log.zip
 
 *.DS_Store
 

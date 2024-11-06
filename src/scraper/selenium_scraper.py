@@ -34,7 +34,11 @@ def scrape_img_src_selenium(
     return image_list
 
 
-def get_img_urls_selenium(page_url_string: str) -> list:
+def get_img_urls_selenium(
+    page_url_string: str,
+    class_str=settings.class_str,
+    container_str=settings.container_str,
+) -> list:
     """Use selenium to load and scroll to generate a list of image urls."""
     logger.info(f"Getting image urls for {page_url_string}")
     options = webdriver.ChromeOptions()
@@ -60,7 +64,7 @@ def get_img_urls_selenium(page_url_string: str) -> list:
     page = driver.page_source
     driver.quit()
     soup = BeautifulSoup(page, "html.parser")
-    container = soup.find_all("div", class_="woocommerce-image__wrapper")
+    container = soup.find_all(container_str, class_=class_str)
     image_list = []
     for div in container:
         img_tag = div.find("img")
