@@ -1,0 +1,10 @@
+model_config:
+  model_path: "model/ckpt/NeuralNetworkWithDropout_20241110_214240_best.pt"
+  class_dict:
+    0: "afghan"
+    1: "chinese"
+    2: "indian"
+    3: "modern"
+    4: "moroccan"
+    5: "persian"
+    6: "turkish"

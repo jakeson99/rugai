@@ -25,6 +25,9 @@ matplotlib = "^3.9.2"
 torcheval = "^0.0.7"
 pillow = "^11.0.0"
 scikit-learn = "^1.5.2"
+streamlit = "^1.40.1"
+fastapi = "^0.115.5"
+uvicorn = "^0.32.0"
 
 
 [build-system]

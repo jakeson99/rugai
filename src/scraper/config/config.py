@@ -14,8 +14,6 @@ class Settings(BaseSettings):
     use_list: bool
     url_list_file: FilePath
     save_dir: DirectoryPath
-    container_str: str
-    class_str: str
     log_level: str
 
 
