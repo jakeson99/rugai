@@ -23,13 +23,11 @@ class ModelInference:
         self.model.to(self.device)
 
     def _load_model(self):
-        checkpoint = torch.load(
-            self.model_path,
-            map_location=self.device,
-            weights_only=True,
-        )
         model = NeuralNetworkWithDropout(len(self.class_dict))
-        model.load_state_dict(checkpoint["model_state_dict"])
+        state_dict = torch.load(
+            self.model_path, map_location=self.device, weights_only=True
+        )
+        model.load_state_dict(state_dict)
         model.eval()
         return model
 
@@ -38,7 +36,6 @@ class ModelInference:
 
         if isinstance(config_path, dict):
             config = config_path
-            print(config)
         else:
             # Convert to Path object
             config_path = Path(config_path)
