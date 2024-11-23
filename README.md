@@ -3,8 +3,7 @@
 Rugai is a project which uses deep learning to predict the origin of rug images.
 
 ## Getting Started
-Rugai can be accessed via Streamlit Cloud:
-<link>
+Rugai can be accessed via [Streamlit Cloud](https://therugai.streamlit.app/).
 
 
 To run the web scraper and download training images first update `.env` with the appropriate variables and run the following command:
