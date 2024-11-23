@@ -1,37 +1,39 @@
 import streamlit as st
-import torch
-import torchvision
-import torchvision.transforms as transforms
+import yaml
+from ml_framework import ModelInference
 from PIL import Image
 
-from ml_framework.model import NeuralNetworkWithDropout
+st.set_page_config(page_title="RugAI", page_icon=":genie:", layout="wide")
 
-# Load the model
-model = NeuralNetworkWithDropout()
-model.load_state_dict(torch.load('model/ckpt/NeuralNetworkWithDropout_20241110_214240_best.pt', map_location=torch.device('cpu')))
-model.eval()
+# Load config
+with open("src/app/config/config.yaml") as f:
+    config = yaml.safe_load(f)
 
-# Define preprocessing transform
-transform = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(224),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
 
-def predict(image):
-    image = transform(image)
-    image = image.unsqueeze(0) # Add batch dimension
-    with torch.no_grad():
-        output = model(image)
-        _, predicted = torch.max(output, 1)
-    return predicted.item()
+def main():
+    st.title(":genie: RugAI")
+    st.subheader("Determine the origin of your vintage rug!")
+    st.write("Upload an image to begin!")
 
-st.title("Image Classification App")
-uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
+    # File uploader
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
-    prediction = predict(image)
-    st.write(f"Predicted class: {prediction}")
+    col1, col2 = st.columns([1, 1])
+
+    if uploaded_file is not None:
+        # Display image
+        image = Image.open(uploaded_file)
+        col1.image(image, caption="Uploaded Image", use_container_width=True)
+
+    if uploaded_file is not None and col1.button("Classify Image"):
+        with st.spinner("Analyzing image..."):
+            model = ModelInference(config)
+            prediction = model.inference(uploaded_file)
+
+        st.success(f"Predicted Class: {prediction['class']}")
+        st.write(f"Confidence: {prediction['probability']:.2%}")
+        st.progress(prediction["probability"])
+
+
+if __name__ == "__main__":
+    main()
