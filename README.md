@@ -15,5 +15,5 @@ poetry run python scraper_runner.py
 
 To run the rugai streamlit application locally use the following command:
 ```
-streamlit run app.py
+streamlit run src/app/app.py
 ```
