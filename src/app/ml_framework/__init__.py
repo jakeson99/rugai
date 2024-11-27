@@ -1,3 +1,3 @@
-from .model import NeuralNetworkWithDropout
+from .model import ImprovedCNN
 
 from .inference import ModelInference

@@ -4,7 +4,7 @@ import torch
 import yaml
 from utils import load_preprocess_image
 
-from ml_framework import NeuralNetworkWithDropout
+from ml_framework import ImprovedCNN
 
 
 class ModelInference:
@@ -23,9 +23,11 @@ class ModelInference:
         self.model.to(self.device)
 
     def _load_model(self):
-        model = NeuralNetworkWithDropout(len(self.class_dict))
+        model = ImprovedCNN(len(self.class_dict))
         state_dict = torch.load(
-            self.model_path, map_location=self.device, weights_only=True
+            self.model_path,
+            map_location=self.device,
+            weights_only=True,
         )
         model.load_state_dict(state_dict)
         model.eval()
