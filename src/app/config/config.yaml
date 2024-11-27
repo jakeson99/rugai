@@ -1,5 +1,5 @@
 model_config:
-  model_path: "model/weights/NeuralNetworkWithDropout_20241110_214240_best.h5"
+  model_path: "model/weights/ImprovedCNN_20241126_070802_best.h5"
   class_dict:
     0: "afghan"
     1: "chinese"
