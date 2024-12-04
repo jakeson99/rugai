@@ -1,5 +1,4 @@
-# rugai
-
+# rugai  🧞‍♂️
 Rugai is a project which uses a convolutional neural network to classify the origin of antique rug images.
 The model is trained locally and accessed via the application deployed on Streamlit Cloud.
 
