@@ -3,6 +3,7 @@ Rugai is a project which uses a convolutional neural network to classify the ori
 The model is trained locally and accessed via the application deployed on Streamlit Cloud.
 
 ## Getting Started
+
 Rugai can be accessed via Streamlit Cloud:
 [rugai](https://therugai.streamlit.app/)
 
