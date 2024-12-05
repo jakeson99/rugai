@@ -2,7 +2,7 @@
 Rugai is a project which uses a convolutional neural network to classify the origin of vintage rug images.
 The model is trained locally and the UI is created using Streamlit and deployed on Streamlit Cloud.
 
-## Getting Started
+## Getting started
 
 Rugai can be accessed via Streamlit Cloud:
 [rugai](https://therugai.streamlit.app/)
@@ -17,7 +17,7 @@ To begin drag and drop an image of your rug or click 'Browse files' and select t
 
 The model is a convolutional neaural net with a fully connected final layer as the classifier. It was trained on 7 classes representing the different rug origins. Training was done locally using [mps backend](https://pytorch.org/docs/stable/notes/mps.html) on the GPU of a M1 macbook and experiment tracking was done using [Weights and Biases](https://wandb.ai/site). The UI was created using the [Streamlit framework](https://streamlit.io/) and deployed on [Streamlit Cloud](https://streamlit.io/cloud).
 
-## Run From Source
+## Run from source
 
 If you'd like to run any of the code locally, first clone the repository. Package dependencies are handled via [Poetry](https://python-poetry.org/docs/). Once Poetry is installed on your system you can install dependencies and activate the environment using:
 ```
