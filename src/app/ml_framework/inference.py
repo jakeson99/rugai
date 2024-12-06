@@ -4,7 +4,7 @@ import torch
 import yaml
 from utils import load_preprocess_image
 
-from ml_framework import ImprovedCNN
+from ml_framework import load_resnet50
 
 
 class ModelInference:
@@ -23,7 +23,7 @@ class ModelInference:
         self.model.to(self.device)
 
     def _load_model(self):
-        model = ImprovedCNN(len(self.class_dict))
+        model = load_resnet50(num_classes=len(self.class_dict))
         state_dict = torch.load(
             self.model_path,
             map_location=self.device,
