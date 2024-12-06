@@ -1,5 +1,5 @@
 model_config:
-  model_path: "model/weights/ImprovedCNN_20241126_070802_best.h5"
+  model_path: "model/weights/ResNet_20241206_070301_best.h5"
   class_dict:
     0: "afghan"
     1: "chinese"
