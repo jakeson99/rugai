@@ -28,7 +28,7 @@ poetry shell
 
 To run the rugai streamlit application locally use the following command:
 ```
-streamlit run src/app/app.py
+streamlit run rugai/app/app.py
 ```
 
 The model training was done via a jupyter notebook which can be run using:
@@ -39,7 +39,7 @@ jupyter notebook notebooks/model_training_updated.ipynb
 
 To run the web scraper and download training images first update `.env` with the appropriate variables and run the following command:
 ```
-cd src 
+cd rugai 
 poetry run python scraper_runner.py
 ```
 
