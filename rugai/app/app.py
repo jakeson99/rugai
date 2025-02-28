@@ -6,7 +6,7 @@ from PIL import Image
 st.set_page_config(page_title="RugAI", page_icon=":genie:", layout="wide")
 
 # Load config
-with open("src/app/config/config.yaml") as f:
+with open("rugai/app/config/config.yaml") as f:
     config = yaml.safe_load(f)
 
 
